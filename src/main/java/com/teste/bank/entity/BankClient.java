@@ -1,8 +1,7 @@
 package com.teste.bank.entity;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import com.sun.istack.NotNull;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -12,13 +11,14 @@ import java.util.Date;
 @Table(name = "bank_client")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class BankClient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NonNull
     @Column(name = "name")
     private String name;
 
@@ -28,11 +28,9 @@ public class BankClient {
     @Column(name = "balance")
     private BigDecimal balance;
 
-    @NonNull
     @Column(name = "account_number")
     private String accountNumber;
 
-    @NonNull
     @Column(name = "birth_date")
     private Date birthDate;
 }

@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 public class BankTransactionRequest {
 
     private BigDecimal amount;
-    private String account;
     private String name;
+    private String numberAccount;
+    private String operationType;
 }

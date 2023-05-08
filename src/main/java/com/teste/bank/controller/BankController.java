@@ -18,32 +18,26 @@ public class BankController {
     private BankClientService bankClientService;
 
     @PostMapping("/new-client")
-    public ResponseEntity<BankClientResponse> newClient(BankClientRequest bankClientRequest){
+    public ResponseEntity<BankClientResponse> newClient(@RequestBody BankClientRequest bankClientRequest) {
         BankClientResponse bankClientResponse = bankClientService.newClient(bankClientRequest);
         return ResponseEntity.ok(bankClientResponse);
     }
 
     @GetMapping("/all-client")
-    public ResponseEntity<Page<BankClientResponse>> findAll(){
+    public ResponseEntity<Page<BankClientResponse>> findAll() {
         Page<BankClientResponse> bankClientResponsePage = bankClientService.findAll();
         return ResponseEntity.ok(bankClientResponsePage);
     }
 
     @PostMapping("/transaction")
     public ResponseEntity<BankTransactionResponse> transactionBankDeposit(@RequestBody BankTransactionRequest bankTransactionRequest) {
-        BankTransactionResponse bankTransactionResponse = bankClientService.transactionBankDeposit(bankTransactionRequest);
-        return ResponseEntity.ok(bankTransactionResponse);
+        BankTransactionResponse bankTransactionResponse = bankClientService.transactionBank(bankTransactionRequest);
+        return ResponseEntity.ok().body(bankTransactionResponse);
     }
 
-    @PostMapping("/transaction")
-    public ResponseEntity<BankTransactionResponse> transactionBankDrawal(@RequestBody BankTransactionRequest bankTransactionRequest) {
-        BankTransactionResponse bankTransactionResponse = bankClientService.transactionBankDrawal(bankTransactionRequest);
-        return ResponseEntity.ok(bankTransactionResponse);
-    }
-
-    @GetMapping("/transaction-consult")
-    public ResponseEntity<Page<BankTransactionResponse>> transactionAll(){
-        Page<BankTransactionResponse> bankTransactionResponse = bankClientService.getTransaction();
+    @GetMapping("/transaction-consult/{numberAccount}/{startDate}_{endDate}")
+    public ResponseEntity<Page<BankTransactionResponse>> transactionByDate(@PathVariable String numberAccount, @PathVariable String startDate, @PathVariable String endDate) {
+        Page<BankTransactionResponse> bankTransactionResponse = bankClientService.getTransactionByDate(numberAccount, startDate, endDate);
         return ResponseEntity.ok(bankTransactionResponse);
     }
 }

@@ -1,9 +1,6 @@
 package com.teste.bank.model.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -15,9 +12,12 @@ import java.util.Date;
 public class BankClientRequest {
 
     private Integer id;
+    @NonNull
     private String name;
+    @NonNull
     private Boolean exclusive;
     private BigDecimal balance;
     private String accountNumber;
+    @NonNull
     private Date birthDate;
 }

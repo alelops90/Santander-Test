@@ -14,9 +14,7 @@ public interface BankClientService {
 
     Page<BankClientResponse> findAll();
 
-    BankTransactionResponse transactionBankDeposit(BankTransactionRequest bankTransactionRequest);
+    BankTransactionResponse transactionBank(BankTransactionRequest bankTransactionRequest);
 
-    BankTransactionResponse transactionBankDrawal(BankTransactionRequest bankTransactionRequest);
-
-    Page<BankTransactionResponse> getTransaction();
+    Page<BankTransactionResponse> getTransactionByDate(String numberAccount, String startDate, String endDate);
 }

@@ -1,6 +1,7 @@
 package com.teste.bank.mapper;
 
 import com.teste.bank.entity.BankTransaction;
+import com.teste.bank.model.request.BankTransactionRequest;
 import com.teste.bank.model.response.BankTransactionResponse;
 import org.mapstruct.Mapper;
 
@@ -8,4 +9,6 @@ import org.mapstruct.Mapper;
 public interface BankTransactionMapper {
 
     BankTransactionResponse toResponse(BankTransaction bankTransaction);
+
+    BankTransaction toEntity(BankTransactionRequest bankTransactionRequest);
 }

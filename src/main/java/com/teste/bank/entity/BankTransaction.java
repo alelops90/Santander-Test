@@ -1,7 +1,9 @@
 package com.teste.bank.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -11,6 +13,8 @@ import java.time.LocalDateTime;
 @Table(name = "bank_transaction")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class BankTransaction {
 
     @Id
@@ -21,15 +25,18 @@ public class BankTransaction {
     private BigDecimal amount;
 
     @Column(name = "previous_balance")
-    private BigDecimal previousbalance;
+    private BigDecimal previousBalance;
 
     @Column(name = "new_balance")
-    private BigDecimal newbalance;
+    private BigDecimal newBalance;
 
     @Column(name = "number_account")
-    private String numberAccount;
+        private String numberAccount;
 
     @Column(name = "transaction_time")
-    private LocalDateTime transactionTIme;
+    private LocalDateTime transactionTime;
+
+    @Column(name = "operation_type")
+    private String operationType;
 
 }

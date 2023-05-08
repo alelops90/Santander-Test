@@ -15,7 +15,10 @@ import java.time.LocalDateTime;
 public class BankTransactionResponse {
 
     private Integer id;
+    private BigDecimal amount;
     private BigDecimal previousBalance;
-    private BigDecimal updateBalance;
+    private BigDecimal newBalance;
+    private String numberAccount;
     private LocalDateTime transactionTime;
+    private String operationType;
 }
