@@ -1,6 +1,7 @@
 package com.test.bank.mock;
 
 import com.test.bank.entity.BankClient;
+import com.test.bank.entity.BankTransaction;
 import com.test.bank.model.request.BankClientRequest;
 import com.test.bank.model.request.BankTransactionRequest;
 import com.test.bank.model.response.BankClientResponse;
@@ -138,7 +139,7 @@ public class MockForTest {
                 .id(4)
                 .name("João")
                 .accountNumber("93120033")
-                .balance(BigDecimal.valueOf(500.00))
+                .balance(BigDecimal.valueOf(500.0))
                 .exclusive(true)
                 .birthDate(new Date(2001, 10, 15))
                 .build();
@@ -154,6 +155,33 @@ public class MockForTest {
     }
 
     public static BankTransactionRequest requestTransactionDrawal() {
+        return BankTransactionRequest.builder()
+                .amount(BigDecimal.valueOf(1000.00))
+                .name("João")
+                .numberAccount("93120033")
+                .operationType("drawal")
+                .build();
+    }
+
+    public static BankTransactionRequest requestTransactionDrawalService() {
+        return BankTransactionRequest.builder()
+                .amount(BigDecimal.valueOf(100.00))
+                .name("João")
+                .numberAccount("93120033")
+                .operationType("drawal")
+                .build();
+    }
+
+    public static BankTransactionRequest requestTransactionDrawalServiceAndRate() {
+        return BankTransactionRequest.builder()
+                .amount(BigDecimal.valueOf(101.00))
+                .name("João")
+                .numberAccount("93120033")
+                .operationType("drawal")
+                .build();
+    }
+
+    public static BankTransactionRequest requestTransactionDrawalServiceAndRate2() {
         return BankTransactionRequest.builder()
                 .amount(BigDecimal.valueOf(1000.00))
                 .name("João")
@@ -186,6 +214,124 @@ public class MockForTest {
                 .build();
     }
 
+    public static Page<BankTransactionResponse> responseTransactionInDatabasePage() {
+        List<BankTransactionResponse> bankTransactions = new ArrayList<>();
+        BankTransactionResponse bankTransaction01 = BankTransactionResponse.builder()
+                .id(12)
+                .amount(BigDecimal.valueOf(100.00))
+                .previousBalance(BigDecimal.valueOf(500.00))
+                .newBalance(BigDecimal.valueOf(400.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        BankTransactionResponse bankTransaction02 = BankTransactionResponse.builder()
+                .id(13)
+                .amount(BigDecimal.valueOf(1000.00))
+                .previousBalance(BigDecimal.valueOf(5000.00))
+                .newBalance(BigDecimal.valueOf(4000.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        BankTransactionResponse bankTransaction03 = BankTransactionResponse.builder()
+                .id(14)
+                .amount(BigDecimal.valueOf(100.00))
+                .previousBalance(BigDecimal.valueOf(500.00))
+                .newBalance(BigDecimal.valueOf(400.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        BankTransactionResponse bankTransaction04 = BankTransactionResponse.builder()
+                .id(15)
+                .amount(BigDecimal.valueOf(1000.00))
+                .previousBalance(BigDecimal.valueOf(5000.00))
+                .newBalance(BigDecimal.valueOf(4000.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        BankTransactionResponse bankTransaction05 = BankTransactionResponse.builder()
+                .id(16)
+                .amount(BigDecimal.valueOf(1000.00))
+                .previousBalance(BigDecimal.valueOf(5000.00))
+                .newBalance(BigDecimal.valueOf(4000.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        bankTransactions.add(bankTransaction01);
+        bankTransactions.add(bankTransaction02);
+        bankTransactions.add(bankTransaction03);
+        bankTransactions.add(bankTransaction04);
+        bankTransactions.add(bankTransaction05);
+        return new PageImpl<>(bankTransactions);
+    }
+
+    public static List<BankTransaction> responseTransactionInDatabase() {
+        List<BankTransaction> bankTransactions = new ArrayList<>();
+        BankTransaction bankTransaction01 = BankTransaction.builder()
+                .id(12)
+                .amount(BigDecimal.valueOf(100.00))
+                .previousBalance(BigDecimal.valueOf(500.00))
+                .newBalance(BigDecimal.valueOf(400.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        BankTransaction bankTransaction02 = BankTransaction.builder()
+                .id(13)
+                .amount(BigDecimal.valueOf(1000.00))
+                .previousBalance(BigDecimal.valueOf(5000.00))
+                .newBalance(BigDecimal.valueOf(4000.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        BankTransaction bankTransaction03 = BankTransaction.builder()
+                .id(14)
+                .amount(BigDecimal.valueOf(100.00))
+                .previousBalance(BigDecimal.valueOf(500.00))
+                .newBalance(BigDecimal.valueOf(400.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        BankTransaction bankTransaction04 = BankTransaction.builder()
+                .id(15)
+                .amount(BigDecimal.valueOf(1000.00))
+                .previousBalance(BigDecimal.valueOf(5000.00))
+                .newBalance(BigDecimal.valueOf(4000.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+
+        BankTransaction bankTransaction05 = BankTransaction.builder()
+                .id(16)
+                .amount(BigDecimal.valueOf(1000.00))
+                .previousBalance(BigDecimal.valueOf(5000.00))
+                .newBalance(BigDecimal.valueOf(4000.00))
+                .numberAccount("93120033")
+                .transactionTime(LocalDateTime.of(2023, 04, 18, 10, 15))
+                .operationType(DRAWAL)
+                .build();
+        bankTransactions.add(bankTransaction01);
+        bankTransactions.add(bankTransaction02);
+        bankTransactions.add(bankTransaction03);
+        bankTransactions.add(bankTransaction04);
+        bankTransactions.add(bankTransaction05);
+        return bankTransactions;
+    }
     public static Page<BankTransactionResponse> responseTransactionPage() {
         List<BankTransactionResponse> bankTransactionResponses = new ArrayList<>();
         BankTransactionResponse transaction01 = BankTransactionResponse.builder()

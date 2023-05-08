@@ -78,10 +78,10 @@ public class BankClientServiceImpl implements BankClientService {
                     newBalance = bankClient.getBalance().subtract(bankTransactionRequest.getAmount());
                 } else if (BigDecimal.valueOf(100).compareTo(bankTransactionRequest.getAmount()) <= 0 && bankTransactionRequest.getAmount().compareTo(BigDecimal.valueOf(300)) <= 0) {
                     newBalance = bankClient.getBalance().subtract(bankTransactionRequest.getAmount())
-                            .subtract(bankTransactionRequest.getAmount().multiply(BigDecimal.valueOf(0.04)));
+                            .subtract(bankTransactionRequest.getAmount().multiply(BigDecimal.valueOf(0.004)));
                 } else if (BigDecimal.valueOf(300).compareTo(bankTransactionRequest.getAmount()) < 0) {
                     newBalance = bankClient.getBalance().subtract(bankTransactionRequest.getAmount())
-                            .subtract(bankTransactionRequest.getAmount().multiply(BigDecimal.valueOf(0.1)));
+                            .subtract(bankTransactionRequest.getAmount().multiply(BigDecimal.valueOf(0.01)));
                 }
             } else {
                 newBalance = bankClient.getBalance().subtract(bankTransactionRequest.getAmount());
@@ -100,7 +100,9 @@ public class BankClientServiceImpl implements BankClientService {
     @Override
     public Page<BankTransactionResponse> getTransactionByDate(String numberAccount, String startDate, String endDate) {
         List<BankTransaction> bankTransaction = bankTransactionRepository.findAllByDate(numberAccount, startDate, endDate);
-
+        if (bankTransaction.isEmpty()){
+            throw new NotFoundException("There are no transactions! ");
+        }
         List<BankTransactionResponse> bankTransactionResponses = bankTransaction.stream().map(transaction -> bankTransactionMapper.toResponse(transaction)).collect(Collectors.toList());
         return new PageImpl<>(bankTransactionResponses);
     }
