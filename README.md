@@ -9,3 +9,4 @@ Endpoints criados:
 
 Swagger implementado, campos e endpoints explicativo, descrição dos mesmos para facilitar o entendimento.
 Disponibilizei tambem a Collection do PostMan para interação com a Aplicação (Arquivo: Bank.postman_collection.json).
+Os testes foram feito de duas formas, apenas para distinção de forma de fazer.
