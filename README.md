@@ -8,3 +8,4 @@ Endpoints criados:
 - Consultar o histórico de transações de cada movimentação por Data (Saque e depósito)
 
 Swagger implementado, campos e endpoints explicativo, descrição dos mesmos para facilitar o entendimento.
+Disponibilizei tambem a Collection do PostMan para interação com a Aplicação.
