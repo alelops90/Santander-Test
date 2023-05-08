@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "6a3eeba0-07e2-4baf-845c-e7a9d3249773",
+		"name": "Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bank/all-client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"all-client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transactionConsult",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bank/all-client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"all-client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Jonas\",\r\n  \"exclusive\": true,\r\n  \"balance\": 580.95,\r\n  \"accountNumber\": \"90120033\",\r\n  \"birthDate\": \"2024-03-11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bank/new-client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"new-client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transactionBankDeposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 5000.00,\r\n  \"account\": \"93120032\",\r\n  \"name\": \"Maria\",\r\n  \"operationType\": \"deposit\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bank/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transactionBankDrawal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 100.00,\r\n  \"account\": \"93120032\",\r\n  \"name\": \"Maria\",\r\n  \"operationType\": \"drawal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bank/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
