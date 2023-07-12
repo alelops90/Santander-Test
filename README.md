@@ -1,4 +1,4 @@
-Aplicação desenvolvida para o teste técnico do Santander.
+Aplicação desenvolvida simulando um banco.
 
 Endpoints criados:
 - Cadastrar um cliente
